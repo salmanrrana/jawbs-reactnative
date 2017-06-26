@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -26,12 +28,21 @@ export default class App extends React.Component {
           }
         })
       }
+    }, {
+      //this makes sure that the tab bar is removed in the welcome screen
+      //lazy makes sure the facebook auth modal does not pop up immediately
+      navigationOptions: {
+        tabBarVisible: false
+      },
+      lazy: true
     });
 
     return (
-      <View style={styles.container}>
-        <MainNavigator screenProps="navigate"/>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MainNavigator screenProps="navigate"/>
+        </View>
+      </Provider>
     );
   }
 }
