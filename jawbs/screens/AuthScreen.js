@@ -13,9 +13,11 @@ class AuthScreen extends Component {
     // AsyncStorage.removeItem('fb_token');
   }
 
+
   //called when a component is just about to rerender
   componentWillReceiveProps(nextProps) {
     this.onAuthComplete(nextProps);
+
   }
 
   //helper function we make for componentDidMount
