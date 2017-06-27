@@ -50,10 +50,19 @@ class DeckScreen extends Component {
     )
   }
 
-  renderNoMoreCards() {
+  //deckscreen does not call this function
+  //so the value of 'this' for the this.props.navigation will give us an error
+  //by adding the () and => it will fix this iss\ue
+  renderNoMoreCards = () => {
     return(
       <Card title="NO More Jobs">
-
+        <Button
+          title="back To Map"
+          large
+          icon={{ name: 'my-location'}}
+          backgroundColor="#03A9F4"
+          onPress={() => this.props.navigation.navigate('map')}
+        />
       </Card>
     )
   }

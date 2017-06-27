@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import auth from './auth_reducer';
 import jobs from './jobs_reducer';
+import likedJobs from './likes_reducer';
 
 //reducers must define a nonundefined value
 //must return object, string, or number
@@ -12,5 +13,6 @@ import jobs from './jobs_reducer';
 
 export default combineReducers({
   auth: auth,
-  jobs: jobs
+  jobs: jobs,
+  likedJobs: likedJobs
 });
