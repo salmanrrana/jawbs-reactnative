@@ -26,8 +26,14 @@ class MapScreen extends Component {
   }
 
   // fetchJobs is coming from the job_actions.js in actions
+  // in this function we have access to this.props.navigation.navigate
+  //what we need to navigate the user
+  //going to pass a callback function to this action creator.
+  //after action creator fetches list of jobs, it will call the callback we passed to it to navigate
   onButtonPress = () => {
-    this.props.fetchJobs(this.state.region)
+    this.props.fetchJobs(this.state.region, () => {
+      this.props.navigation.navigate('deck');
+    });
   }
 
   render() {
@@ -48,7 +54,7 @@ class MapScreen extends Component {
         <View style={styles.buttonContainer}>
           <Button
             large
-            title="Search THis Area"
+            title="Search This Area"
             backgroundColor="#009688"
             icon={{ name: 'search' }}
             onPress={this.onButtonPress}

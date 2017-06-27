@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from './auth_reducer';
+import jobs from './jobs_reducer';
 
 //reducers must define a nonundefined value
 //must return object, string, or number
@@ -10,5 +11,6 @@ import auth from './auth_reducer';
 // if toiken is defined go to map
 
 export default combineReducers({
-  auth: auth
+  auth: auth,
+  jobs: jobs
 });
