@@ -27,7 +27,6 @@ class AuthScreen extends Component {
     if (props.token) {
       this.props.navigation.navigate('map');
     }
-    console.log('props.token: ', props.token);
   }
 
 
