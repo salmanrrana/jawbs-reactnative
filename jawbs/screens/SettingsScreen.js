@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { clearLikedJobs } from '../actions';
@@ -9,6 +9,13 @@ import { clearLikedJobs } from '../actions';
 //the action we are going to use is clear_liked_jobs
 //we are not binding the onpress because we wdo not need it for this
 class SettingsScreen extends Component {
+  static navigationOption = {
+    header: {
+      style: {
+        marginTop: Platform.OS === 'android' ? 24: 0
+      }
+    }
+  }
   render() {
     return (
       <View style={{ marginTop: 20 }}>

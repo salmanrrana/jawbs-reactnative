@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Platform } from 'react-native';
 import { MapView } from 'expo';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import Swipe from '../components/Swipe';
 import * as actions from '../actions';
@@ -14,6 +14,12 @@ import * as actions from '../actions';
 
 
 class DeckScreen extends Component {
+  static navigationOptions = {
+    title: 'Jobs',
+    tabBarIcon: ({ tintColor}) => {
+        return <Icon name="description" size={30} color={tintColor} />
+      }
+  }
   //this is function for the swipe component
   //that we send through renderCard in swipe
   //cacheEnabled helps keep a static mapview and will allow performace to be better

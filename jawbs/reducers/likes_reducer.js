@@ -1,8 +1,10 @@
+import _ from 'lodash';
+import { REHYDRATE } from 'redux-persist/constants';
 import {
   LIKE_JOB,
   CLEAR_LIKED_JOBS
 } from '../actions/types';
-import _ from 'lodash';
+
 
 // return a list of jobs for LIKE_JOB
 //make a new array--> contain a job has just liked with action.payload
@@ -11,8 +13,14 @@ import _ from 'lodash';
 
 //clear_liked_jobs will reset the jobs that a user has liked
 
+//we add rehydrate to watch for the autorehydrate store enchancer
+//when it dispatches an action and if it finds that case of a rehydrate
+// we take action.payload.likedJobs
+
 export default function(state = [], action) {
   switch (action.type) {
+    case REHYDRATE:
+      return action.payload.likedJobs || [];
     case CLEAR_LIKED_JOBS:
         return [];
     case LIKE_JOB:

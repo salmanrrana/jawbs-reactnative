@@ -10,7 +10,7 @@ class AuthScreen extends Component {
     this.onAuthComplete(this.props);
     //this code below removes the token and forgets that you have ever logged in
     // TEMP CODE TEMP CODE TEMP CODE
-    // AsyncStorage.removeItem('fb_token');
+    AsyncStorage.removeItem('fb_token');
   }
 
 
